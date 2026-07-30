@@ -1,12 +1,11 @@
 # Stock Analysis Skills
 
-可复用的公开公司研究技能组合，覆盖证据库、SEC EDGAR、HKEXnews 和业绩电话会纪要归档。每个技能都以官方来源、原始文件留存、可追溯索引和不确定事项记录为核心。
+可复用的公开公司研究技能组合，覆盖 SEC EDGAR、HKEXnews 和业绩电话会纪要归档。每个技能都以官方来源、原始文件留存、可追溯索引和不确定事项记录为核心。
 
 ## 包含的技能
 
 | 技能 | 用途 |
 | --- | --- |
-| `aidc-evidence-library` | 建立并审计 AI 基础设施与数据中心研究的证据、数据点和事件库。 |
 | `sec-filings-audit-download` | 完整归档新标的指定时间范围内的 SEC 申报，或对已有归档检查并增量补齐。默认窗口为最近七个自然年。 |
 | `hkex-filings-search` | 搜索、保存和引用 HKEXnews 正式披露。 |
 | `alpha-vantage-transcripts` | 使用使用者自备的 Alpha Vantage key 下载业绩电话会纪要。 |

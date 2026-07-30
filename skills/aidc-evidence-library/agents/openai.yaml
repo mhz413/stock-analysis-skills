@@ -1,4 +1,0 @@
-interface:
-  display_name: "AIDC Evidence Library"
-  short_description: "Build traceable infrastructure research evidence"
-  default_prompt: "Use $aidc-evidence-library to create and audit a traceable public-company evidence library."
