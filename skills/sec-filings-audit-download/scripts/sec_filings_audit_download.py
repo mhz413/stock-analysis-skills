@@ -50,6 +50,14 @@ MANIFEST_FIELDS = [
 DEFAULT_USER_AGENT = ""
 
 
+def seven_calendar_years_before(day: date) -> date:
+    """Return the same calendar date seven years earlier, handling leap day."""
+    try:
+        return day.replace(year=day.year - 7)
+    except ValueError:
+        return day.replace(year=day.year - 7, day=28)
+
+
 @dataclass(frozen=True)
 class Filing:
     accession_number: str
@@ -817,23 +825,34 @@ def run_workflow(
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    today = date.today().isoformat()
+    current_day = date.today()
+    today = current_day.isoformat()
+    default_start_date = seven_calendar_years_before(current_day).isoformat()
     parser = argparse.ArgumentParser(
-        description="Audit SEC accession completeness and download only gaps."
+        description="Archive an SEC filing window or audit and backfill an existing archive."
     )
     parser.add_argument("company")
     parser.add_argument("--cik")
     parser.add_argument("--company-name", default="")
     parser.add_argument("--project-root", required=True)
-    parser.add_argument("--start-date", default="2024-01-01")
+    parser.add_argument(
+        "--start-date",
+        default=default_start_date,
+        help="First filing date (default: same calendar date seven years ago).",
+    )
     parser.add_argument("--end-date", default=today)
     parser.add_argument("--accessed-at", default=today)
     parser.add_argument(
         "--document-scope",
         choices=("submission", "filing", "html", "full"),
         default="submission",
+        help="Retention scope: submission (default), filing, html, or full.",
     )
-    parser.add_argument("--audit-only", action="store_true")
+    parser.add_argument(
+        "--audit-only",
+        action="store_true",
+        help="Report accession and local-file gaps without downloading.",
+    )
     parser.add_argument("--overwrite", action="store_true")
     parser.add_argument(
         "--user-agent",

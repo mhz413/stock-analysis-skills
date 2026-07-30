@@ -1,4 +1,4 @@
 interface:
   display_name: "SEC Filings Audit & Download"
-  short_description: "Audit EDGAR accessions and archive missing filings"
-  default_prompt: "Use $sec-filings-audit-download to reconcile official SEC filing accessions and backfill only confirmed gaps."
+  short_description: "Archive SEC filing windows and backfill filing gaps"
+  default_prompt: "Use $sec-filings-audit-download to archive a new SEC filing window, or audit and incrementally repair an existing archive."
