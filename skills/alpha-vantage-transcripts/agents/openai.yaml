@@ -1,0 +1,4 @@
+interface:
+  display_name: "Alpha Vantage Transcripts"
+  short_description: "Archive transcript JSON with a user-supplied key"
+  default_prompt: "Use $alpha-vantage-transcripts to retrieve and archive earnings-call transcripts with my own API key."

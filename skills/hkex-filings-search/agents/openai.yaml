@@ -1,0 +1,4 @@
+interface:
+  display_name: "HKEX Filings Search"
+  short_description: "Search and archive official HKEXnews filings"
+  default_prompt: "Use $hkex-filings-search to find, preserve, and cite official HKEXnews filings."

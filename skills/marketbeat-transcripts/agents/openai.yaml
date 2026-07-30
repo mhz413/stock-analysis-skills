@@ -1,0 +1,4 @@
+interface:
+  display_name: "MarketBeat Transcripts"
+  short_description: "Extract third-party earnings transcripts to JSON"
+  default_prompt: "Use $marketbeat-transcripts to archive a third-party earnings-call transcript as JSON."
